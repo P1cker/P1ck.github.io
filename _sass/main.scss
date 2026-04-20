@@ -1,0 +1,299 @@
+// VulnForge Research Blog
+// Dark theme, clean typography, security-research aesthetic
+
+$bg:         #0d1117;
+$bg-card:    #161b22;
+$bg-code:    #161b22;
+$text:       #c9d1d9;
+$text-dim:   #8b949e;
+$accent:     #f85149;
+$link:       #58a6ff;
+$border:     #30363d;
+$tag-bg:     #1f2937;
+
+$font-body:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+$font-mono:  "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+
+$width:      48rem;
+
+// Reset
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: $font-body;
+  background: $bg;
+  color: $text;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+// Header
+.site-header {
+  border-bottom: 1px solid $border;
+  padding: 0.75rem 1.5rem;
+  nav {
+    max-width: calc(#{$width} + 3rem);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .site-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text;
+    letter-spacing: -0.02em;
+    &:hover { color: $accent; text-decoration: none; }
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    a {
+      color: $text-dim;
+      font-size: 0.875rem;
+      &:hover { color: $text; }
+    }
+  }
+}
+
+// Main
+main {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+// Post header
+.post-header {
+  margin-bottom: 2.5rem;
+}
+.post-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-top: 0.5rem;
+  color: #e6edf3;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  time {
+    font-size: 0.875rem;
+    color: $text-dim;
+  }
+}
+.post-tags {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    background: $tag-bg;
+    border-radius: 3px;
+    color: $text-dim;
+    font-family: $font-mono;
+  }
+}
+
+// Post content
+.post-content {
+  h1 { display: none; } // title already shown in header
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.75rem;
+    color: #e6edf3;
+    letter-spacing: -0.02em;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid $border;
+  }
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 2rem 0 0.5rem;
+    color: #e6edf3;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+  strong {
+    color: #e6edf3;
+    font-weight: 600;
+  }
+  ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    li { margin-bottom: 0.25rem; }
+  }
+  blockquote {
+    border-left: 3px solid $accent;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    color: $text-dim;
+    font-style: italic;
+  }
+
+  // Code
+  code {
+    font-family: $font-mono;
+    font-size: 0.875rem;
+    background: $bg-code;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+  }
+  pre {
+    background: $bg-code;
+    border: 1px solid $border;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+    line-height: 1.5;
+    code {
+      background: none;
+      padding: 0;
+      font-size: 0.8125rem;
+    }
+  }
+
+  // Tables
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.875rem;
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid $border;
+    }
+    th {
+      color: $text-dim;
+      font-weight: 600;
+    }
+    tr:hover { background: rgba(255,255,255,0.02); }
+  }
+
+  // Horizontal rule
+  hr {
+    border: none;
+    border-top: 1px solid $border;
+    margin: 2rem 0;
+  }
+}
+
+// Vuln summary card
+.vuln-card {
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 6px;
+  h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $accent;
+    margin-bottom: 0.75rem;
+  }
+  table {
+    margin: 0;
+    td:first-child {
+      color: $text-dim;
+      font-weight: 600;
+      white-space: nowrap;
+      width: 100px;
+    }
+  }
+}
+
+// Post list (index)
+.post-list {
+  list-style: none;
+  padding: 0;
+  li {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $border;
+    &:last-child { border-bottom: none; }
+  }
+  .post-link {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #e6edf3;
+    letter-spacing: -0.02em;
+    display: block;
+    &:hover { color: $link; text-decoration: none; }
+  }
+  .post-excerpt {
+    color: $text-dim;
+    font-size: 0.9rem;
+    margin-top: 0.375rem;
+    line-height: 1.5;
+  }
+  .post-date {
+    font-size: 0.8rem;
+    color: $text-dim;
+    margin-top: 0.25rem;
+  }
+}
+
+// Footer
+.site-footer {
+  border-top: 1px solid $border;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: $text-dim;
+  a { color: $link; }
+}
+
+// About page
+.about-page {
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+}
+
+// Syntax highlighting (rouge)
+.highlight {
+  .c  { color: #8b949e; } // comment
+  .err { color: $accent; }
+  .k  { color: #ff7b72; } // keyword
+  .s  { color: #a5d6ff; } // string
+  .m  { color: #79c0ff; } // number
+  .nf { color: #d2a8ff; } // function
+  .nb { color: #ffa657; } // built-in
+  .nc { color: #ffa657; } // class
+  .nt { color: #7ee787; } // tag
+  .nd { color: #d2a8ff; } // decorator
+  .o  { color: #ff7b72; } // operator
+  .p  { color: $text; }   // punctuation
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .post-title { font-size: 1.5rem; }
+  main { padding: 1.5rem 1rem; }
+}

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<header class="post-header">
+  <div class="post-meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% if page.tags %}
+    <span class="post-tags">
+      {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </span>
+    {% endif %}
+  </div>
+  <h1 class="post-title">{{ page.title }}</h1>
+</header>
+<div class="post-content">
+  {{ content }}
+</div>
+{% if page.categories contains "vulnerability-analysis" %}
+<aside class="vuln-card">
+  <h3>Vulnerability Summary</h3>
+  <table>
+    {% if page.cve %}<tr><td>CVE</td><td><a href="https://nvd.nist.gov/vuln/detail/{{ page.cve }}">{{ page.cve }}</a></td></tr>{% endif %}
+    {% if page.cvss %}<tr><td>CVSS</td><td>{{ page.cvss }}</td></tr>{% endif %}
+    {% if page.affected %}<tr><td>Affected</td><td>{{ page.affected }}</td></tr>{% endif %}
+    {% if page.fixed %}<tr><td>Fixed</td><td>{{ page.fixed }}</td></tr>{% endif %}
+    {% if page.cwe %}<tr><td>CWE</td><td>{{ page.cwe }}</td></tr>{% endif %}
+  </table>
+</aside>
+{% endif %}

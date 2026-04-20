@@ -1,0 +1,28 @@
+title: VulnForge Research
+description: Vulnerability analysis and exploitation research
+url: "https://p1ck.github.io"
+baseurl: ""
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+permalink: /:year/:month/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: P1ck
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
