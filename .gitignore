@@ -1,6 +1,25 @@
+# Build artifacts
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 *.gem
+
+# Dependencies
 Gemfile.lock
+vendor/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Drafts (work-in-progress, don't push)
+# _drafts/ is tracked but draft .md files should be reviewed before pushing
+# Move to _posts/ only when ready to publish
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
